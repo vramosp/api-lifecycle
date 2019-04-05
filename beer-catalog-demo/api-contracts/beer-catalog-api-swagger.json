@@ -15,6 +15,44 @@
     "version": "0.9"
   },
   "paths": {
+    "/beer": {
+      "get": {
+        "tags": [
+          "beer"
+        ],
+        "summary": "List beers within catalog",
+        "description": "List beers within catalog",
+        "operationId": "ListBeers",
+        "parameters": [
+          {
+            "name": "api-key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "user_keys"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of beers",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Beer"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "description": "Number of page to retrieve",
+          "type": "number"
+        }
+      ]
+    },
     "/beer/{name}": {
       "get": {
         "tags": [
@@ -23,6 +61,15 @@
         "summary": "Get beer having name",
         "description": "Get beer having name",
         "operationId": "GetBeer",
+        "parameters": [
+          {
+            "name": "api-key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "user_keys"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Beer having requested name",
@@ -50,6 +97,15 @@
         "summary": "Get beers having status",
         "description": "Get beers having status",
         "operationId": "FindBeersByStatus",
+        "parameters": [
+          {
+            "name": "api-key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "user_keys"
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of beers having requested status",
@@ -77,43 +133,8 @@
           "type": "number"
         }
       ]
-    },
-    "/beer": {
-      "get": {
-        "tags": [
-          "beer"
-        ],
-        "summary": "List beers within catalog",
-        "description": "List beers within catalog",
-        "operationId": "ListBeers",
-        "responses": {
-          "200": {
-            "description": "Array of beers",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Beer"
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "name": "page",
-          "in": "query",
-          "description": "Number of page to retrieve",
-          "type": "number"
-        }
-      ]
     }
   },
-  "tags": [
-    {
-      "name": "beer",
-      "description": "Beer resource"
-    }
-  ],
   "definitions": {
     "Beer": {
       "properties": {
@@ -150,6 +171,12 @@
   "security": [
     {
       "api-key": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "beer",
+      "description": "Beer resource"
     }
   ]
 }
