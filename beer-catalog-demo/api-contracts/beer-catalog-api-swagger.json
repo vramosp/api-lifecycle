@@ -1,182 +1,159 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Beer Catalog API",
-    "description": "An API for querying beer catalog of Acme Inc.",
-    "contact": {
-      "name": "Laurent Broudoux",
-      "url": "http://github.com/lbroudoux",
-      "email": "laurent.broudoux@gmail.com"
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Beer Catalog API",
+    "description" : "An API for querying beer catalog of the best app in the world.",
+    "contact" : {
+      "name" : "Laurent Broudoux",
+      "url" : "http://github.com/lbroudoux",
+      "email" : "laurent.broudoux@gmail.com"
     },
-    "license": {
-      "name": "MIT License",
-      "url": "https://opensource.org/licenses/MIT"
+    "license" : {
+      "name" : "MIT License",
+      "url" : "https://opensource.org/licenses/MIT"
     },
-    "version": "0.9"
+    "version" : "0.9"
   },
-  "paths": {
-    "/beer": {
-      "get": {
-        "tags": [
-          "beer"
-        ],
-        "summary": "List beers within catalog",
-        "description": "List beers within catalog",
-        "operationId": "ListBeers",
-        "parameters": [
-          {
-            "name": "api-key",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "x-data-threescale-name": "user_keys"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Array of beers",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Beer"
+  "paths" : {
+    "/beer" : {
+      "get" : {
+        "tags" : [ "beer" ],
+        "summary" : "List beers within catalog",
+        "description" : "List beers within catalog",
+        "operationId" : "ListBeers",
+        "parameters" : [ {
+          "name" : "api-key",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "x-data-threescale-name" : "user_keys"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Array of beers",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Beer"
               }
             }
           }
         }
       },
-      "parameters": [
-        {
-          "name": "page",
-          "in": "query",
-          "description": "Number of page to retrieve",
-          "type": "number"
-        }
-      ]
+      "parameters" : [ {
+        "name" : "page",
+        "in" : "query",
+        "description" : "Number of page to retrieve",
+        "type" : "number"
+      } ]
     },
-    "/beer/{name}": {
-      "get": {
-        "tags": [
-          "beer"
-        ],
-        "summary": "Get beer having name",
-        "description": "Get beer having name",
-        "operationId": "GetBeer",
-        "parameters": [
-          {
-            "name": "api-key",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "x-data-threescale-name": "user_keys"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Beer having requested name",
-            "schema": {
-              "$ref": "#/definitions/Beer"
+    "/beer/{name}" : {
+      "get" : {
+        "tags" : [ "beer" ],
+        "summary" : "Get beer having name",
+        "description" : "Get beer having name",
+        "operationId" : "GetBeer",
+        "parameters" : [ {
+          "name" : "api-key",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "x-data-threescale-name" : "user_keys"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Beer having requested name",
+            "schema" : {
+              "$ref" : "#/definitions/Beer"
             }
           }
         }
       },
-      "parameters": [
-        {
-          "name": "name",
-          "in": "path",
-          "description": "Name of beer to retrieve",
-          "required": true,
-          "type": "string"
-        }
-      ]
+      "parameters" : [ {
+        "name" : "name",
+        "in" : "path",
+        "description" : "Name of beer to retrieve",
+        "required" : true,
+        "type" : "string"
+      } ]
     },
-    "/beer/findByStatus/{status}": {
-      "get": {
-        "tags": [
-          "beer"
-        ],
-        "summary": "Get beers having status",
-        "description": "Get beers having status",
-        "operationId": "FindBeersByStatus",
-        "parameters": [
-          {
-            "name": "api-key",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "x-data-threescale-name": "user_keys"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of beers having requested status",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Beer"
+    "/beer/findByStatus/{status}" : {
+      "get" : {
+        "tags" : [ "beer" ],
+        "summary" : "Get beers having status",
+        "description" : "Get beers having status",
+        "operationId" : "FindBeersByStatus",
+        "parameters" : [ {
+          "name" : "api-key",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "x-data-threescale-name" : "user_keys"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of beers having requested status",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Beer"
               }
             }
           }
         }
       },
-      "parameters": [
-        {
-          "name": "status",
-          "in": "path",
-          "description": "Status of beers to retrieve",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "name": "page",
-          "in": "query",
-          "description": "Number of page to retrieve",
-          "type": "number"
-        }
-      ]
+      "parameters" : [ {
+        "name" : "status",
+        "in" : "path",
+        "description" : "Status of beers to retrieve",
+        "required" : true,
+        "type" : "string"
+      }, {
+        "name" : "page",
+        "in" : "query",
+        "description" : "Number of page to retrieve",
+        "type" : "number"
+      } ]
     }
   },
-  "definitions": {
-    "Beer": {
-      "properties": {
-        "name": {
-          "description": "Name of Beer",
-          "type": "string"
+  "definitions" : {
+    "Beer" : {
+      "properties" : {
+        "name" : {
+          "description" : "Name of Beer",
+          "type" : "string"
         },
-        "country": {
-          "description": "Origin country of Beer",
-          "type": "string"
+        "country" : {
+          "description" : "Origin country of Beer",
+          "type" : "string"
         },
-        "type": {
-          "description": "Type of Beer",
-          "type": "string"
+        "type" : {
+          "description" : "Type of Beer",
+          "type" : "string"
         },
-        "rating": {
-          "description": "Rating from customers",
-          "type": "number"
+        "rating" : {
+          "description" : "Rating from customers",
+          "type" : "number"
         },
-        "status": {
-          "description": "Stock status",
-          "type": "string"
+        "status" : {
+          "description" : "Stock status",
+          "type" : "string"
         }
       }
     }
   },
-  "securityDefinitions": {
-    "api-key": {
-      "type": "apiKey",
-      "name": "api-key",
-      "in": "header"
+  "securityDefinitions" : {
+    "api-key" : {
+      "type" : "apiKey",
+      "name" : "api-key",
+      "in" : "header"
     }
   },
-  "security": [
-    {
-      "api-key": []
-    }
-  ],
-  "tags": [
-    {
-      "name": "beer",
-      "description": "Beer resource"
-    }
-  ]
+  "security" : [ {
+    "api-key" : [ ]
+  } ],
+  "tags" : [ {
+    "name" : "beer",
+    "description" : "Beer resource"
+  } ]
 }
