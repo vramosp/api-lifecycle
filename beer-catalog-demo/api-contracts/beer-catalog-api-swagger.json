@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "title" : "Beer Catalog API",
-    "description" : "An API for querying beer catalog of the best app in the world.",
+    "description" : "An API for querying beer catalog of AcmeCo.",
     "contact" : {
       "name" : "Laurent Broudoux",
       "url" : "http://github.com/lbroudoux",
